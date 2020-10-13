@@ -14,7 +14,7 @@ package io.sf.carte.util;
 import java.util.Iterator;
 
 /**
- * Iterates a collection composed by a single element.
+ * Iterates an immutable collection composed by a single element.
  * 
  * @param <E>
  *            the element type.
