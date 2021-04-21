@@ -18,7 +18,7 @@ import java.io.IOException;
  * <p>
  * Similar to a subset from {@link java.io.Writer}, but with {@link #newLine()} method
  * added, similar to {@link java.io.BufferedWriter#newLine()} but with the difference that
- * the newline not necessarily uses the <tt>line.separator</tt> system property and
+ * the newline not necessarily uses the <code>line.separator</code> system property and
  * instead may target another system.
  *
  */
