@@ -1,13 +1,15 @@
 plugins {
-	id 'css4j.java-conventions'
+	id 'carte.java-conventions'
 }
 
 description = 'carte-util'
 
 publishing.publications.maven(MavenPublication).pom {
-	description = "Carte utility library"
+	description = 'Carte utility library'
 }
 
-java {
-	withJavadocJar()
+version = '3.5.1'
+
+dependencies {
+	testImplementation 'junit:junit:4.13.1'
 }
