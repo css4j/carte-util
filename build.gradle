@@ -55,6 +55,10 @@ repositories {
 	}
 }
 
+sourcesJar {
+	dependsOn compileModuleInfoJava
+}
+
 tasks.register('lineEndingConversion', CRLFConvert) {
 	description 'Convert LICENSE.txt to Windows line endings'
 	file "$rootDir/LICENSE.txt"
