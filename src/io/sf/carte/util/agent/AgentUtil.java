@@ -68,7 +68,7 @@ public class AgentUtil {
 		String charset = null;
 		if (conType != null) {
 			int sepidx = conType.indexOf(';');
-			if (sepidx != -1 && sepidx < conType.length()) {
+			if (sepidx != -1) {
 				conType = conType.substring(0, sepidx);
 				charset = AgentUtil.findCharset(conType, sepidx + 1);
 			}
