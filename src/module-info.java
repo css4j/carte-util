@@ -8,6 +8,10 @@
  * https://css4j.github.io/LICENSE.txt
  *
  */
+
+/**
+ * Utility packages.
+ */
 module io.sf.carte.util {
 	exports io.sf.carte.util;
 	exports io.sf.carte.util.agent;
