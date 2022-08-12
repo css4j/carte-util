@@ -7,7 +7,7 @@ group = 'io.sf.carte'
 
 description = 'carte-util'
 
-version = '3.5.2'
+version = '3.6.0'
 
 sourceSets {
 	main {
