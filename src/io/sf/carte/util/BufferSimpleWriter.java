@@ -11,8 +11,6 @@
 
 package io.sf.carte.util;
 
-import java.io.IOException;
-
 /**
  * An implementation of {@link SimpleWriter} backed by a {@link StringBuilder}.
  */
@@ -69,7 +67,7 @@ public class BufferSimpleWriter implements SimpleWriter {
 	}
 
 	@Override
-	public void newLine() throws IOException {
+	public void newLine() {
 		buffer.append('\n');
 	}
 
@@ -110,22 +108,22 @@ public class BufferSimpleWriter implements SimpleWriter {
 	}
 
 	@Override
-	public void write(CharSequence s) throws IOException {
+	public void write(CharSequence s) {
 		buffer.append(s);
 	}
 
 	@Override
-	public void write(char[] cbuf, int offset, int len) throws IOException {
+	public void write(char[] cbuf, int offset, int len) {
 		buffer.append(cbuf, offset, len);
 	}
 
 	@Override
-	public void write(char c) throws IOException {
+	public void write(char c) {
 		buffer.append(c);
 	}
 
 	@Override
-	public void write(int num) throws IOException {
+	public void write(int num) {
 		buffer.append(num);
 	}
 
