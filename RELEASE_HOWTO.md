@@ -115,3 +115,9 @@ Add to the Github release the _jar_ files from this release.
 12) Verify that the new [Github packages](https://github.com/orgs/css4j/packages?repo_name=carte-util)
 were created successfully by the [Gradle Package](https://github.com/css4j/carte-util/actions/workflows/gradle-publish.yml)
 task.
+
+13) In your local copy of the [css4j-dist](https://github.com/css4j/css4j-dist)
+repository, update the carte-util version number in the
+[maven/install-css4j.sh](https://github.com/css4j/css4j-dist/blob/master/maven/install-css4j.sh)
+script. Commit the change, push and look for the completion of that project's
+CI.
