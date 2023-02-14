@@ -25,23 +25,16 @@ At the carte-util sources directory, run `gradlew build` to build. For example:
 ```shell
 git clone https://github.com/css4j/carte-util.git
 cd carte-util
-gradlew build
-```
-or
-```shell
-git clone https://github.com/css4j/carte-util.git
-cd carte-util
 ./gradlew build
 ```
-on Unix-like shells (where the current directory is generally not in the `PATH`).
 
 <br/>
 
 ### Deploying to a Maven repository
 
 Use:
-- `gradlew build publishToMavenLocal` to install in your local Maven repository.
-- `gradlew publish` to deploy to a (generally remote) Maven repository.
+- `./gradlew build publishToMavenLocal` to install in your local Maven repository.
+- `./gradlew publish` to deploy to a (generally remote) Maven repository.
 
 Before deploying to a remote Maven repository, please read the
 `publishing.repositories.maven` block of
