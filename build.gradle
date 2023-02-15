@@ -48,6 +48,9 @@ java {
 	withSourcesJar()
 }
 
+test {
+	useJUnitPlatform()
+}
 
 tasks.compileJava {
 	excludes += ['module-info.java']
