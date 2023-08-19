@@ -72,43 +72,7 @@ generate_directory_index_caddystyle.py -r carte-util
 If the changes to the `css4j.github.io` repository look correct, commit them but
 do not push yet.
 
-9) For legacy URL compatibility, produce a non-modular Javadoc and put it into
-`css4j.github.io/api/carte-util/3`. To generate the javadocs,
-apply the following patch to the `build.gradle` file in your copy of the
-release code:
-
-```patch
-@@ -112,11 +112,14 @@ tasks.withType(JavaCompile) {
- 
- tasks.withType(Javadoc) {
-    options.addStringOption('Xdoclint:none', '-quiet')
-    options.addStringOption('encoding', 'UTF-8')
-    options.addStringOption('charset', 'UTF-8')
--   options.links 'https://docs.oracle.com/en/java/javase/11/docs/api/'
-+   options.links 'https://docs.oracle.com/javase/8/docs/api/'
-+   options.source = '8'
-+   excludes += '**/module-info.java'
-+   modularity.inferModulePath = false
- }
- 
- tasks.withType(AbstractArchiveTask).configureEach {
- 	// Reproducible build
- 	preserveFileTimestamps = false
-```
-
-Once the new javadocs are generated, move them to the website repo. For example:
-
-```shell
-rm -fr /path/to/css4j.github.io/api/3
-mkdir /path/to/css4j.github.io/api/3
-mv /path/to/css4j-3.9.1/build/docs/javadoc/* /path/to/css4j.github.io/api/3
-```
-
-If the changes to the `css4j.github.io` repo look correct, commit them with a
-description like "Non-modular Javadocs for 3.9.1" but do not push yet.
-
-
-10) Clone the [css4j-dist](https://github.com/css4j/css4j-dist) repository and
+9) Clone the [css4j-dist](https://github.com/css4j/css4j-dist) repository and
 execute `./gradlew mergedJavadoc`. Move the javadocs from `build/docs/javadoc`
 to `/path/to/css4j.github.io/api/latest`:
 
@@ -126,7 +90,7 @@ triggered by that commit to the `css4j.github.io` repository completed
 successfully. A failure could mean that the jar file is not usable with Java 8,
 for example.
 
-11) Create a `v<version>` tag in the carte-util Git repository. For example:
+10) Create a `v<version>` tag in the carte-util Git repository. For example:
 
 ```shell
 cd /path/to/carte-util
@@ -140,7 +104,7 @@ generally a good idea to sign a release tag.
 Alternatively, you could create the new tag when drafting the Github release
 (next step).
 
-12) Draft a new Github release at https://github.com/css4j/carte-util/releases
+11) Draft a new Github release at https://github.com/css4j/carte-util/releases
 
 Summarize the most important changes in the release description, then create a
 `## Detail of changes` section and paste the contents of the `CHANGES.txt` file
@@ -148,11 +112,11 @@ under it.
 
 Add to the Github release the _jar_ files from this release.
 
-13) Verify that the new [Github packages](https://github.com/orgs/css4j/packages?repo_name=carte-util)
+12) Verify that the new [Github packages](https://github.com/orgs/css4j/packages?repo_name=carte-util)
 were created successfully by the [Gradle Package](https://github.com/css4j/carte-util/actions/workflows/gradle-publish.yml)
 task.
 
-14) In your local copy of the [css4j-dist](https://github.com/css4j/css4j-dist)
+13) In your local copy of the [css4j-dist](https://github.com/css4j/css4j-dist)
 repository, update the carte-util version number in the
 [maven/install-css4j.sh](https://github.com/css4j/css4j-dist/blob/master/maven/install-css4j.sh)
 script. Commit the change, push and look for the completion of that project's
