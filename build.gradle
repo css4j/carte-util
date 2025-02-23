@@ -96,7 +96,7 @@ tasks.register('checkLegacyJava') {
 classes.finalizedBy checkLegacyJava
 
 tasks.register('lineEndingConvCopy', CRLFConvertCopy) {
-	description 'Convert LICENSE.txt to Windows line endings'
+	description = 'Convert LICENSE.txt to Windows line endings'
 	from "$rootDir/LICENSE.txt"
 }
 
