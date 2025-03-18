@@ -23,7 +23,7 @@ public class SingleElementIteratorTest {
 	@Test
 	public void testSingleElementIterator() {
 		String s = "foo";
-		SingleElementIterator<String> it = new SingleElementIterator<String>(s);
+		SingleElementIterator<String> it = new SingleElementIterator<>(s);
 		assertTrue(it.hasNext());
 		assertEquals("foo", it.next());
 		assertFalse(it.hasNext());
