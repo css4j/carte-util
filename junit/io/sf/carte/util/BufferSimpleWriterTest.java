@@ -33,6 +33,10 @@ public class BufferSimpleWriterTest {
 		assertEquals("abcdef1", wri.toString());
 		wri.unwrite(2);
 		assertEquals("abcde", wri.toString());
+		wri.append('g');
+		assertEquals("abcdeg", wri.toString());
+		wri.append("hijk", 1, 4);
+		assertEquals("abcdegijk", wri.toString());
 		wri.unwrite(20);
 		assertEquals(0, wri.length());
 	}

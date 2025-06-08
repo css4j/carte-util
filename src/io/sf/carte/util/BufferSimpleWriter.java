@@ -11,6 +11,8 @@
 
 package io.sf.carte.util;
 
+import java.io.IOException;
+
 /**
  * An implementation of {@link SimpleWriter} backed by a {@link StringBuilder}.
  */
@@ -84,11 +86,27 @@ public class BufferSimpleWriter implements SimpleWriter {
 	/**
 	 * Remove the last character found in this buffer, if any.
 	 */
+	@Override
 	public void unwrite() {
 		int len = buffer.length();
 		if (len != 0) {
 			buffer.setLength(len - 1);
 		}
+	}
+
+	/**
+	 * Get the last character processed.
+	 * 
+	 * @return the last character processed.
+	 * @throws IllegalStateException if no character was processed yet.
+	 */
+	@Override
+	public char getLastChar() throws IllegalStateException {
+		int len = buffer.length();
+		if (len == 0) {
+			throw new IllegalStateException();
+		}
+		return buffer.charAt(len - 1);
 	}
 
 	/**
@@ -99,6 +117,7 @@ public class BufferSimpleWriter implements SimpleWriter {
 	 * 
 	 * @param numChars the number of characters to remove.
 	 */
+	@Override
 	public void unwrite(int numChars) {
 		int len = buffer.length() - numChars;
 		if (len < 0) {
@@ -110,6 +129,12 @@ public class BufferSimpleWriter implements SimpleWriter {
 	@Override
 	public void write(CharSequence s) {
 		buffer.append(s);
+	}
+
+	@Override
+	public BufferSimpleWriter append(CharSequence csq, int start, int end) throws IOException {
+		buffer.append(csq, start, end);
+		return this;
 	}
 
 	@Override
