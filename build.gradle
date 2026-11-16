@@ -145,6 +145,17 @@ tasks.withType(AbstractArchiveTask).configureEach {
 	}
 }
 
+tasks.register('testOn8', Test) {
+	description = 'Runs tests on Java 8'
+	dependsOn classes
+	testClassesDirs = testing.suites.test.sources.output.classesDirs
+	classpath = testing.suites.test.sources.runtimeClasspath
+	useJUnitPlatform()
+	javaLauncher = javaToolchains.launcherFor {
+		languageVersion = JavaLanguageVersion.of(8)
+	}
+}
+
 publishing {
 	publications {
 		maven(MavenPublication) {
